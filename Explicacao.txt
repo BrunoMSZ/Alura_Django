@@ -1,0 +1,44 @@
+#1 - Baixar django -> pip install django
+
+--criar venv = python -m venv ./(nome_venv)
+--ativar venv = venv/Scripts/Activate
+--desativar venv = deactivate
+-- pip freeze = mostra todas as dependencias
+-- pip freeze > requirements.txt : cria um arquivo de requirements(requisitos padroes para rodar)
+
+#2 - No terminal, digitar django-admin help  -> Mostrará todos os comandos do django
+
+#3 - Para iniciar um novo projeto, será preciso realizar esse comando: django-admin startproject (NOMEDAPASTA, normalmente SETUP) .(adiciona em uma nova pasta com esse nome)
+
+#4 - Selecionar a versão do python da venv -> ctrl+shift+p -> digitar python -> selecionar interpreter -> python (venv)
+
+#5 - Para rodar o server -> python manage.py runserver
+
+#6 - pip install python-dotenv = serve para realizar o carregamento de variaveis de ambiente
+#7 - cria arquivo .env para adicionar variavel de ambiente (String sem '')
+
+from dotenv import load_dotenv
+
+load_dotenv()
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
+
+.gitignore = cria uma pasta onde não irá passar para o git as informações
+#funcionalidades = apps
+
+#Criar app : python3 manage.py startapp 'nomeApp'
+#Views = Cuidar do que será exibo em cada tela
+
+#Dentro de templates(settings) passar está informacao para adicionar um novo diretorio: os.path.join(BASE_DIR, 'nome_pasta')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'setup/static') #indica todos os arquivos estáticos do app
+]
+STATIC_ROOT = os.path.join(BASE_DIR,'static') #o caminho absoluto do diretório para que ele faça a manipulação dos dados estáticos
+
+
+#Roda os itens estáticos: collectstatic - > python manage.py collectstatic
+
+#Alterar em cada mudança de página = <a href="{% url 'nome_Path' %}">
+#Exemplo de path(em urls.py): path('imagem/', imagem, name = 'imagem'),
+
+
